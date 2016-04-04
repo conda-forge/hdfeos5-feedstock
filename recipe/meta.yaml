@@ -11,22 +11,23 @@ source:
         - EHapi.c.patch
 
 build:
-    number: 0
+    number: 1
     skip: True  # [win]
 
 requirements:
     build:
         - hdf5
         - zlib
-        - gcc
     run:
         - hdf5
         - zlib
+        - libgcc
 
 test:
     commands:
-        - exit $(test -f ${PREFIX}/lib/libGctp.a)  # [not win]
-        - exit $(test -f ${PREFIX}/lib/libhe_hdfeos.a)  # [not win]
+        - test -f ${PREFIX}/lib/libGctp.a  # [unix]
+        - test -f ${PREFIX}/lib/libhe5_hdfeos.a  # [unix]
+        - conda inspect linkages -n _test hdfeos5  # [linux]
 
 about:
     home: http://hdfeos.org/index.php
