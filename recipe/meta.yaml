@@ -11,16 +11,16 @@ source:
         - EHapi.c.patch
 
 build:
-    number: 2
+    number: 3
     skip: True  # [win]
 
 requirements:
     build:
-        - hdf5 1.8.15.1
-        - zlib
+        - hdf5 1.8*
+        - zlib 1.2*
     run:
-        - hdf5 1.8.15.1
-        - zlib
+        - hdf5 1.8*
+        - zlib 1.2*
 
 test:
     commands:
