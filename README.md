@@ -5,7 +5,7 @@ Home: http://hdfeos.org/index.php
 
 Package license: BSD
 
-Feedstock license: BSD
+Feedstock license: BSD 3-Clause
 
 Summary: Earth Observing System HDF
 
@@ -69,6 +69,7 @@ Terminology
 
 Current build status
 ====================
+
 Linux: [![Circle CI](https://circleci.com/gh/conda-forge/hdfeos5-feedstock.svg?style=svg)](https://circleci.com/gh/conda-forge/hdfeos5-feedstock)
 OSX: [![TravisCI](https://travis-ci.org/conda-forge/hdfeos5-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/hdfeos5-feedstock) 
 Windows: [![AppVeyor](https://ci.appveyor.com/api/projects/status/github/conda-forge/hdfeos5-feedstock?svg=True)](https://ci.appveyor.com/project/conda-forge/hdfeos5-feedstock/branch/master)
