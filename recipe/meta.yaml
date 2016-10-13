@@ -1,41 +1,42 @@
 {% set version = "5.1.15" %}
 
 package:
-    name: hdfeos5
-    version: {{ version }}
+  name: hdfeos5
+  version: {{ version }}
 
 source:
-    fn: HDF-EOS{{ version }}.tar.Z
-    url: ftp://edhs1.gsfc.nasa.gov/edhs/hdfeos5/latest_release/HDF-EOS{{ version }}.tar.Z
-    sha256: 119588067abf139c1c600a4519b880d04a3933049576c88acdc8ff6fc71803dd
-    patches:
-        # http://hdfeos.org/forums/showthread.php?t=673
-        - EHapi.c.patch
+  fn: HDF-EOS{{ version }}.tar.Z
+  url: ftp://edhs1.gsfc.nasa.gov/edhs/hdfeos5/latest_release/HDF-EOS{{ version }}.tar.Z
+  sha256: 119588067abf139c1c600a4519b880d04a3933049576c88acdc8ff6fc71803dd
+  patches:
+    # http://hdfeos.org/forums/showthread.php?t=673
+    - EHapi.c.patch
 
 build:
-    number: 6
-    skip: True  # [win]
+  number: 6
+  skip: True  # [win]
 
 requirements:
-    build:
-        - hdf5 1.8.17|1.8.17.*
-        - zlib 1.2.*
-    run:
-        - hdf5 1.8.17|1.8.17.*
-        - zlib 1.2.*
+  build:
+    - hdf5 1.8.17|1.8.17.*
+    - zlib 1.2.*
+  run:
+    - hdf5 1.8.17|1.8.17.*
+    - zlib 1.2.*
 
 test:
-    commands:
-        - test -f ${PREFIX}/lib/libGctp.a  # [unix]
-        - test -f ${PREFIX}/lib/libhe5_hdfeos.a  # [unix]
-        - conda inspect linkages -n _test hdfeos5  # [unix]
+  commands:
+    - test -f ${PREFIX}/lib/libGctp.a  # [not win]
+    - test -f ${PREFIX}/lib/libhe5_hdfeos.a  # [not win]
+    #- conda inspect linkages -p $PREFIC hdfeos2  # [not win]
+    #- conda inspect objects -p $PREFIX hdfeos2  # [osx]
 
 about:
-    home: http://hdfeos.org/index.php
-    license: Public Domain
-    summary: 'Earth Observing System HDF.'
+  home: http://hdfeos.org/index.php
+  license: Public Domain
+  summary: 'Earth Observing System HDF.'
 
 extra:
-    recipe-maintainers:
-        - ocefpaf
-        - jhamman
+  recipe-maintainers:
+    - ocefpaf
+    - jhamman
