@@ -11,6 +11,18 @@ Summary: Earth Observing System HDF.
 
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/hdfeos5-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/hdfeos5-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/hdfeos5-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/hdfeos5-feedstock)
+Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/hdfeos5/badges/version.svg)](https://anaconda.org/conda-forge/hdfeos5)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/hdfeos5/badges/downloads.svg)](https://anaconda.org/conda-forge/hdfeos5)
+
 Installing hdfeos5
 ==================
 
@@ -31,7 +43,6 @@ It is possible to list all of the versions of `hdfeos5` available on your platfo
 ```
 conda search hdfeos5 --channel conda-forge
 ```
-
 
 
 About conda-forge
@@ -67,18 +78,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/hdfeos5-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/hdfeos5-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/hdfeos5-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/hdfeos5-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/hdfeos5/badges/version.svg)](https://anaconda.org/conda-forge/hdfeos5)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/hdfeos5/badges/downloads.svg)](https://anaconda.org/conda-forge/hdfeos5)
 
 
 Updating hdfeos5-feedstock
