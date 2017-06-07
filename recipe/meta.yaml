@@ -28,8 +28,8 @@ test:
   commands:
     - test -f ${PREFIX}/lib/libGctp.a  # [not win]
     - test -f ${PREFIX}/lib/libhe5_hdfeos.a  # [not win]
-    #- conda inspect linkages -p $PREFIC hdfeos2  # [not win]
-    #- conda inspect objects -p $PREFIX hdfeos2  # [osx]
+    - conda inspect linkages -p $PREFIX hdfeos5  # [not win]
+    - conda inspect objects -p $PREFIX hdfeos5  # [osx]
 
 about:
   home: http://hdfeos.org/index.php
