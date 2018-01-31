@@ -1,4 +1,4 @@
-{% set version = "5.1.15" %}
+{% set version = "5.1.16" %}
 
 package:
   name: hdfeos5
@@ -6,21 +6,18 @@ package:
 
 source:
   url: ftp://edhs1.gsfc.nasa.gov/edhs/hdfeos5/latest_release/HDF-EOS{{ version }}.tar.Z
-  sha256: 119588067abf139c1c600a4519b880d04a3933049576c88acdc8ff6fc71803dd
-  patches:
-    # http://hdfeos.org/forums/showthread.php?t=673
-    - EHapi.c.patch
+  sha256: 7054de24b90b6d9533329ef8dc89912c5227c83fb447792103279364e13dd452
 
 build:
-  number: 8
+  number: 0
   skip: True  # [win]
 
 requirements:
   build:
-    - hdf5 1.8.18|1.8.18.*
+    - hdf5 1.10.1
     - zlib 1.2.11
   run:
-    - hdf5 1.8.18|1.8.18.*
+    - hdf5 1.10.1
     - zlib 1.2.11
 
 test:
@@ -39,3 +36,4 @@ extra:
   recipe-maintainers:
     - ocefpaf
     - jhamman
+    - khallock
