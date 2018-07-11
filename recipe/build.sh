@@ -2,11 +2,13 @@
 
 export CC=${PREFIX}/bin/h5cc
 export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
-export CFLAGS="-fPIC"
+export CFLAGS="-fPIC $CFLAGS"
 
 export HDF5_LDFLAGS="-L ${PREFIX}/lib"
 
-./configure --prefix=${PREFIX} --with-hdf5=${PREFIX} --with-zlib=${PREFIX}
+./configure --prefix=${PREFIX} \
+            --with-hdf5=${PREFIX} \
+            --with-zlib=${PREFIX}
 
 make
 # skip "make check" because sample program he5_pt_readattrs is failing:
