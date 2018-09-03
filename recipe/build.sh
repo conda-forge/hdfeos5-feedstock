@@ -19,3 +19,6 @@ make install
 pushd include
 make install-includeHEADERS
 popd
+
+# We can remove this when we start using the new conda-build.
+find $PREFIX -name '*.la' -delete
