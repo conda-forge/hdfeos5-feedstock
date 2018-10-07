@@ -1,20 +1,15 @@
 #!/bin/sh
 
-export CC=${PREFIX}/bin/h5cc
-export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
-export CFLAGS="-fPIC $CFLAGS"
-
-export HDF5_LDFLAGS="-L ${PREFIX}/lib"
-
+autoreconf -vfi
 ./configure --prefix=${PREFIX} \
+            --build=${BUILD} \
+            --host=${HOST} \
             --with-hdf5=${PREFIX} \
             --with-zlib=${PREFIX}
 
-make
-# skip "make check" because sample program he5_pt_readattrs is failing:
-# make[2]: *** [pt_write_test] Segmentation fault (core dumped)
-#make check
+make -j${CPU_COUNT}
 make install
+make check
 
 pushd include
 make install-includeHEADERS

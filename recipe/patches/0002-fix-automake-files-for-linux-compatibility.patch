@@ -1,0 +1,96 @@
+From 55f802e98fc6de6eef8aad94147dc78ebbcde587 Mon Sep 17 00:00:00 2001
+From: Michael Sarahan <msarahan@gmail.com>
+Date: Thu, 30 Nov 2017 21:46:17 -0600
+Subject: [PATCH 2/2] fix automake files for linux compatibility
+
+---
+ configure.ac            | 28 ++++++++++++++++++++++++++++
+ include/HE5_HdfEosDef.h |  4 +---
+ src/Makefile.am         |  9 ++++++++-
+ 3 files changed, 37 insertions(+), 4 deletions(-)
+
+diff --git a/configure.ac b/configure.ac
+index 5d48b43..9397176 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -25,6 +25,34 @@ AC_PREFIX_DEFAULT([`pwd`/hdfeos5])
+ # Check for the math library that HDF5 needs
+ AC_CHECK_LIB([m], [ceil])
+ 
++# AC_CANONICAL_HOST is needed to access the 'host_os' variable
++AC_CANONICAL_HOST
++
++build_linux=no
++build_windows=no
++build_mac=no
++
++# Detect the target system
++case "${host_os}" in
++linux*)
++build_linux=yes
++;;
++cygwin*|mingw*)
++build_windows=yes
++;;
++darwin*)
++build_mac=yes
++;;
++*)
++AC_MSG_ERROR(["OS $host_os is not supported"])
++;;
++esac
++
++# Pass the conditionals to automake
++AM_CONDITIONAL([LINUX], [test "$build_linux" = "yes"])
++AM_CONDITIONAL([WINDOWS], [test "$build_windows" = "yes"])
++AM_CONDITIONAL([OSX], [test "$build_mac" = "yes"])
++
+ # Check whether zlib is enabled.
+ # HDF-EOS5 doesn't use zlib, but HDF5 might.  If HDF5 does, it needs
+ # to be given to the linker or there will be undefined symbols in HDF5.
+diff --git a/include/HE5_HdfEosDef.h b/include/HE5_HdfEosDef.h
+index 9ed7881..0f6415d 100755
+--- a/include/HE5_HdfEosDef.h
++++ b/include/HE5_HdfEosDef.h
+@@ -24,8 +24,8 @@
+ #ifndef HE5_HDFEOSDEF_H_
+ #define HE5_HDFEOSDEF_H_
+ 
++#define H5_USE_16_API 1 // required for compilation with recent HDF5
+ #include <hdf5.h>
+-
+ #ifdef H5_USE_16_API
+ #include <H5DSpublic.h>
+ #endif
+@@ -46,8 +46,6 @@
+ 
+ #define HE5_HDFEOSVERSION "1.15"
+ 
+-#define H5_USE_16_API 1
+-
+ #ifndef FALSE
+ #   define FALSE 0
+ #endif
+diff --git a/src/Makefile.am b/src/Makefile.am
+index 76b1d4c..068cfae 100644
+--- a/src/Makefile.am
++++ b/src/Makefile.am
+@@ -10,7 +10,14 @@ INCLUDES=-I$(top_srcdir)/include/
+ 
+ # Set LDFLAGS to allow the HDF-EOS library to use extern variables from
+ # HDF5
+-LDFLAGS=-Wl,-single_module
++if LINUX
++LDFLAGS+= -shrext .so
++LIBS+= -lhdf5_hl -lhdf5 -lm
++endif
++
++if OSX
++LDFLAGS+= -Wl,-single_module
++endif
+ 
+ # Build HDF-EOS5
+ lib_LTLIBRARIES=libhe5_hdfeos.la
+-- 
+2.11.1
+
