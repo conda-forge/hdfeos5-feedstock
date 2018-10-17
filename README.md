@@ -7,7 +7,7 @@ Package license: Public Domain
 
 Feedstock license: BSD 3-Clause
 
-Summary: Earth Observing System HDF.
+Summary: Earth Observing System HDF
 
 
 
