@@ -6,6 +6,8 @@ channel_sources:
 - conda-forge,defaults
 channel_targets:
 - conda-forge main
+cxx_compiler:
+- clangxx
 hdf5:
 - 1.10.4
 macos_machine:
