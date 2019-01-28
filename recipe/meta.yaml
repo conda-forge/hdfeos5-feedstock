@@ -5,7 +5,7 @@ package:
   version: {{ version }}
 
 source:
-  url: ftp://edhs1.gsfc.nasa.gov/edhs/hdfeos5/latest_release/HDF-EOS{{ version }}.tar.Z
+  url: https://observer.gsfc.nasa.gov/ftp/edhs/hdfeos5/latest_release/HDF-EOS{{ version }}.tar.Z
   sha256: 7054de24b90b6d9533329ef8dc89912c5227c83fb447792103279364e13dd452
 
 build:
