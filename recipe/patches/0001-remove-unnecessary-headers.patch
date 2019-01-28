@@ -1,0 +1,24 @@
+From f5ea17e5809485832ec9a38066f1bb6c7431c74a Mon Sep 17 00:00:00 2001
+From: Michael Sarahan <msarahan@gmail.com>
+Date: Thu, 30 Nov 2017 15:50:55 -0600
+Subject: [PATCH 1/2] remove unnecessary headers
+
+---
+ include/Makefile.am | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/include/Makefile.am b/include/Makefile.am
+index 3de93db..b542a29 100755
+--- a/include/Makefile.am
++++ b/include/Makefile.am
+@@ -4,6 +4,4 @@
+ include $(top_srcdir)/config/include.am
+ 
+ # Headers to install
+-include_HEADERS = HE5_GctpFunc.h HE5_HdfEosDef.h HE5_config.h cproj.h ease.h \
+-                  isin.h proj.h tutils.h cfortHdf.h
+-
++include_HEADERS = HE5_GctpFunc.h HE5_HdfEosDef.h ease.h isin.h cfortHdf.h
+-- 
+2.11.1
+
