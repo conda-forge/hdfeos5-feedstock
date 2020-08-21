@@ -29,10 +29,9 @@ requirements:
     - autoconf
     - libtool
   host:
-    - hdf5
+    - hdf5-static
     - zlib
   run:
-    - hdf5
     - zlib
 
 test:
