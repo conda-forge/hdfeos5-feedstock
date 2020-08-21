@@ -1,21 +1,24 @@
 {% set version = "5.1.16" %}
+{% set code_sha256 = "7054de24b90b6d9533329ef8dc89912c5227c83fb447792103279364e13dd452" %}
+{% set data_sha256 = "025d4bf904c28cc202f083a67b2ec0ffd68fa2b212a89de327a18cdca8698551" %}
+
 
 package:
   name: hdfeos5
   version: {{ version }}
 
 source:
-- url: https://observer.gsfc.nasa.gov/ftp/edhs/hdfeos5/latest_release/HDF-EOS{{ version }}.tar.Z
-  sha256: 7054de24b90b6d9533329ef8dc89912c5227c83fb447792103279364e13dd452
+- url: https://git.earthdata.nasa.gov/rest/git-lfs/storage/DAS/hdfeos5/{{ code_sha256 }}?response-content-disposition=attachment%3B%20filename%3D%22HDF-EOS{{ version }}.tar.Z%22%3B%20filename*%3Dutf-8%27%27HDF-EOS{{ version }}.tar.Z
+  sha256: {{ code_sha256 }}
   patches:
     # https://lists.gnu.org/archive/html/guix-devel/2016-09/msg02110.html
     - patches/0001-remove-unnecessary-headers.patch
     - patches/0002-fix-automake-files-for-linux-compatibility.patch
-- url: http://hdfeos.org/software/hdfeos/HDF-EOS5.1.15_TESTDRIVERS.tar.Z
-  sha256: 9fd6933dbcedb3f2dc6810b8681bef426756ff5868dd04702ef84b360839362e
+- url: https://git.earthdata.nasa.gov/rest/git-lfs/storage/DAS/hdfeos5/{{ data_sha256 }}?response-content-disposition=attachment%3B%20filename%3D%22HDF-EOS{{ version }}_TESTDRIVERS.tar.Z%22%3B%20filename*%3Dutf-8%27%27HDF-EOS{{ version }}_TESTDRIVERS.tar.Z
+  sha256: {{ data_sha256 }}
 
 build:
-  number: 5
+  number: 6
   skip: True  # [win]
 
 requirements:
@@ -27,6 +30,7 @@ requirements:
     - libtool
   host:
     - hdf5
+    - hdf5-static
     - zlib
   run:
     - hdf5
@@ -48,3 +52,4 @@ extra:
     - jhamman
     - khallock
     - snowman2
+    - xylar
