@@ -48,6 +48,7 @@ about:
 
 extra:
   recipe-maintainers:
+    - zklaus
     - ocefpaf
     - jhamman
     - khallock
