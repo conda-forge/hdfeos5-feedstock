@@ -8,17 +8,19 @@ package:
   version: {{ version }}
 
 source:
-- url: https://git.earthdata.nasa.gov/rest/git-lfs/storage/DAS/hdfeos5/{{ code_sha256 }}?response-content-disposition=attachment%3B%20filename%3D%22HDF-EOS{{ version }}.tar.Z%22%3B%20filename*%3Dutf-8%27%27HDF-EOS{{ version }}.tar.Z
-  sha256: {{ code_sha256 }}
-  patches:
-    # https://lists.gnu.org/archive/html/guix-devel/2016-09/msg02110.html
-    - patches/0001-remove-unnecessary-headers.patch
-    - patches/0002-fix-automake-files-for-linux-compatibility.patch
-- url: https://git.earthdata.nasa.gov/rest/git-lfs/storage/DAS/hdfeos5/{{ data_sha256 }}?response-content-disposition=attachment%3B%20filename%3D%22HDF-EOS{{ version }}_TESTDRIVERS.tar.Z%22%3B%20filename*%3Dutf-8%27%27HDF-EOS{{ version }}_TESTDRIVERS.tar.Z
-  sha256: {{ data_sha256 }}
+  - url: https://git.earthdata.nasa.gov/rest/git-lfs/storage/DAS/hdfeos5/{{ code_sha256 }}?response-content-disposition=attachment%3B%20filename%3D%22HDF-EOS{{ version }}.tar.Z%22%3B%20filename*%3Dutf-8%27%27HDF-EOS{{ version }}.tar.Z
+    sha256: {{ code_sha256 }}
+    patches:
+      # The original remove header patch comes from
+      # https://lists.gnu.org/archive/html/guix-devel/2016-09/msg02110.html
+      # For more details see the old patch file in the git history.
+      - patches/0001-remove-unnecessary-headers.patch
+      - patches/0002-fix-automake-files-for-linux-compatibility.patch
+  - url: https://git.earthdata.nasa.gov/rest/git-lfs/storage/DAS/hdfeos5/{{ data_sha256 }}?response-content-disposition=attachment%3B%20filename%3D%22HDF-EOS{{ version }}_TESTDRIVERS.tar.Z%22%3B%20filename*%3Dutf-8%27%27HDF-EOS{{ version }}_TESTDRIVERS.tar.Z
+    sha256: {{ data_sha256 }}
 
 build:
-  number: 8
+  number: 9
   skip: True  # [win]
 
 requirements:
