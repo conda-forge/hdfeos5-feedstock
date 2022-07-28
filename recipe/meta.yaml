@@ -20,7 +20,7 @@ source:
     sha256: {{ data_sha256 }}
 
 build:
-  number: 9
+  number: 10
   skip: True  # [win]
 
 requirements:
@@ -30,6 +30,7 @@ requirements:
     - automake
     - autoconf
     - libtool
+    - make
   host:
     - hdf5
     - hdf5-static
