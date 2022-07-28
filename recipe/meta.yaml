@@ -30,6 +30,7 @@ requirements:
     - automake
     - autoconf
     - libtool
+    - make
   host:
     - hdf5
     - hdf5-static
