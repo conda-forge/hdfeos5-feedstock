@@ -1,4 +1,6 @@
 #!/bin/sh
+# Get an updated config.sub and config.guess
+cp $BUILD_PREFIX/share/gnuconfig/config.* ./config
 
 export CC=${PREFIX}/bin/h5cc
 export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
