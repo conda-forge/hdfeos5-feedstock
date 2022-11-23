@@ -13,7 +13,7 @@ export CFLAGS="-fPIC $CFLAGS"
 
 export HDF5_LDFLAGS="-L ${PREFIX}/lib"
 
-./configure --prefix=${PREFIX} \
+./configure -C --prefix=${PREFIX} \
             --with-hdf5=${PREFIX} \
             --with-zlib=${PREFIX}
 
