@@ -16,6 +16,7 @@ source:
       # For more details see the old patch file in the git history.
       - patches/0001-remove-unnecessary-headers.patch
       - patches/0002-fix-automake-files-for-linux-compatibility.patch
+      - patches/osx-cross-configure.patch
   - url: https://git.earthdata.nasa.gov/rest/git-lfs/storage/DAS/hdfeos5/{{ data_sha256 }}?response-content-disposition=attachment%3B%20filename%3D%22HDF-EOS{{ version }}_TESTDRIVERS.tar.Z%22%3B%20filename*%3Dutf-8%27%27HDF-EOS{{ version }}_TESTDRIVERS.tar.Z
     sha256: {{ data_sha256 }}
 
@@ -25,6 +26,7 @@ build:
 
 requirements:
   build:
+    - gnuconfig  # [unix]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - automake
