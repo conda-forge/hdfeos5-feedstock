@@ -90,7 +90,7 @@ diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS hdfeos5.orig/configure h
  
    { echo "$as_me:$LINENO: checking for hdf5 szip decoding filter" >&5
  echo $ECHO_N "checking for hdf5 szip decoding filter... $ECHO_C" >&6; }
-+  he5_cv_hdf5_szip_can_decode=yes
++  he5_cv_hdf5_szip_can_decode=no
    if test "${he5_cv_hdf5_szip_can_decode+set}" = set; then
    echo $ECHO_N "(cached) $ECHO_C" >&6
  else
@@ -98,7 +98,7 @@ diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS hdfeos5.orig/configure h
  
    { echo "$as_me:$LINENO: checking for hdf5 szip encoding filter" >&5
  echo $ECHO_N "checking for hdf5 szip encoding filter... $ECHO_C" >&6; }
-+  he5_cv_hdf5_szip_can_encode=yes
++  he5_cv_hdf5_szip_can_encode=no
    if test "${he5_cv_hdf5_szip_can_encode+set}" = set; then
    echo $ECHO_N "(cached) $ECHO_C" >&6
  else
