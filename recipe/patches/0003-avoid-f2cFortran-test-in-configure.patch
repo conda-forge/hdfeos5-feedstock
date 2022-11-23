@@ -1,23 +1,7 @@
 diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS hdfeos5.orig/configure hdfeos5/configure
 --- hdfeos5.orig/configure	2010-08-30 17:47:03.000000000 +0200
-+++ hdfeos5/configure	2022-11-23 17:31:50.213393428 +0100
-@@ -20355,6 +20355,7 @@
- 
- { echo "$as_me:$LINENO: checking for fc2Fortran macro" >&5
- echo $ECHO_N "checking for fc2Fortran macro... $ECHO_C" >&6; }
-+he5_cv_f2cFortran_defined=no
- if test "${he5_cv_f2cFortran_defined+set}" = set; then
-   echo $ECHO_N "(cached) $ECHO_C" >&6
- else
-@@ -22496,6 +22497,7 @@
- 
- { echo "$as_me:$LINENO: checking for H5Fcreate in -lhdf5" >&5
- echo $ECHO_N "checking for H5Fcreate in -lhdf5... $ECHO_C" >&6; }
-+ac_cv_lib_hdf5_H5Fcreate=yes
- if test "${ac_cv_lib_hdf5_H5Fcreate+set}" = set; then
-   echo $ECHO_N "(cached) $ECHO_C" >&6
- else
-@@ -22577,67 +22579,7 @@
++++ hdfeos5/configure	2022-11-23 19:07:10.973444060 +0100
+@@ -22577,67 +22577,7 @@
  # Check whether HDF5 threadsafety is enabled
  { echo "$as_me:$LINENO: checking if HDF5 threadsafe mode is enabled" >&5
  echo $ECHO_N "checking if HDF5 threadsafe mode is enabled... $ECHO_C" >&6; }
@@ -86,19 +70,3 @@ diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS hdfeos5.orig/configure h
  
  # Record threadsafe status in config.h and for Makefiles
  if test "X$THREADSAFE" = "Xyes"; then
-@@ -22664,6 +22606,7 @@
- 
-   { echo "$as_me:$LINENO: checking for hdf5 szip decoding filter" >&5
- echo $ECHO_N "checking for hdf5 szip decoding filter... $ECHO_C" >&6; }
-+  he5_cv_hdf5_szip_can_decode=no
-   if test "${he5_cv_hdf5_szip_can_decode+set}" = set; then
-   echo $ECHO_N "(cached) $ECHO_C" >&6
- else
-@@ -22753,6 +22696,7 @@
- 
-   { echo "$as_me:$LINENO: checking for hdf5 szip encoding filter" >&5
- echo $ECHO_N "checking for hdf5 szip encoding filter... $ECHO_C" >&6; }
-+  he5_cv_hdf5_szip_can_encode=no
-   if test "${he5_cv_hdf5_szip_can_encode+set}" = set; then
-   echo $ECHO_N "(cached) $ECHO_C" >&6
- else

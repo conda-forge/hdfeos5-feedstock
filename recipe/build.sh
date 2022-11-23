@@ -13,7 +13,14 @@ export CFLAGS="-fPIC $CFLAGS"
 
 export HDF5_LDFLAGS="-L ${PREFIX}/lib"
 
-./configure -C --prefix=${PREFIX} \
+if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 && $target_platform == "osx-arm64" ]]; then
+    he5_cv_f2cFortran_defined=no
+    ac_cv_lib_hdf5_H5Fcreate=yes
+    he5_cv_hdf5_szip_can_decode=no
+    he5_cv_hdf5_szip_can_encode=no
+fi
+
+./configure --prefix=${PREFIX} \
             --with-hdf5=${PREFIX} \
             --with-zlib=${PREFIX}
 
