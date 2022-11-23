@@ -1,0 +1,11 @@
+diff -ruN -x __pycache__ -x obj -x '*~' -x tags -x TAGS hdfeos5.orig/configure hdfeos5/configure
+--- hdfeos5.orig/configure	2010-08-30 17:47:03.000000000 +0200
++++ hdfeos5/configure	2022-11-23 14:09:51.738398769 +0100
+@@ -20355,6 +20355,7 @@
+ 
+ { echo "$as_me:$LINENO: checking for fc2Fortran macro" >&5
+ echo $ECHO_N "checking for fc2Fortran macro... $ECHO_C" >&6; }
++he5_cv_f2cFortran_defined=no
+ if test "${he5_cv_f2cFortran_defined+set}" = set; then
+   echo $ECHO_N "(cached) $ECHO_C" >&6
+ else
