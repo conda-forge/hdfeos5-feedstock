@@ -22,7 +22,8 @@ fi
 
 ./configure --prefix=${PREFIX} \
             --with-hdf5=${PREFIX} \
-            --with-zlib=${PREFIX}
+            --with-zlib=${PREFIX} \
+            --with-szlib=${PREFIX}
 
 make
 # skip "make check" because sample program he5_pt_readattrs is failing:
