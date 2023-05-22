@@ -35,7 +35,6 @@ requirements:
     - make
   host:
     - hdf5
-    - hdf5-static
     - zlib
   run:
     - hdf5
