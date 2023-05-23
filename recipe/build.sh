@@ -7,6 +7,7 @@ chmod -R u+w .
 # Get an updated config.sub and config.guess
 cp $BUILD_PREFIX/share/gnuconfig/config.* ./config
 
+export HDF5_USE_SHLIB=yes
 export CC=${PREFIX}/bin/h5cc
 export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
 export CFLAGS="-fPIC $CFLAGS"

@@ -21,7 +21,7 @@ source:
     sha256: {{ data_sha256 }}
 
 build:
-  number: 11
+  number: 12
   skip: True  # [win]
 
 requirements:
@@ -35,7 +35,6 @@ requirements:
     - make
   host:
     - hdf5
-    - hdf5-static
     - libaec
     - zlib
   run:
