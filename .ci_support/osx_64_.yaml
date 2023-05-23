@@ -14,6 +14,8 @@ cxx_compiler_version:
 - '15'
 hdf5:
 - 1.12.2
+libaec:
+- '1'
 macos_machine:
 - x86_64-apple-darwin13.4.0
 target_platform:

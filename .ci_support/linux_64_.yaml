@@ -16,6 +16,8 @@ docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
 hdf5:
 - 1.12.2
+libaec:
+- '1'
 target_platform:
 - linux-64
 zip_keys:
