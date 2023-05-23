@@ -35,6 +35,7 @@ if [[ "$CONDA_BUILD_CROSS_COMPILATION" == 1 && $target_platform == "osx-arm64" ]
     export ac_cv_lib_hdf5_H5Fcreate=yes
     export he5_cv_hdf5_szip_can_decode=yes
     export he5_cv_hdf5_szip_can_encode=yes
+    export he5_cv_szlib_can_encode=yes
     export he5_cv_szlib_functional=yes
 fi
 
