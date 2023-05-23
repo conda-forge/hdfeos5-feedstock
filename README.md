@@ -1,11 +1,11 @@
-About hdfeos5
-=============
+About hdfeos5-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hdfeos5-feedstock/blob/main/LICENSE.txt)
 
 Home: http://hdfeos.org/index.php
 
 Package license: Public Domain
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hdfeos5-feedstock/blob/main/LICENSE.txt)
 
 Summary: Earth Observing System HDF
 
