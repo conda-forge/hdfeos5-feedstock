@@ -25,6 +25,10 @@ fi
             --with-zlib=${PREFIX} \
             --with-szlib=${PREFIX}
 
+echo "=====================config.log==================="
+cat config.log
+echo "=======================finish====================="
+
 make
 # skip "make check" because sample program he5_pt_readattrs is failing:
 # make[2]: *** [pt_write_test] Segmentation fault (core dumped)
