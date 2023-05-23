@@ -1,6 +1,6 @@
 #!/bin/sh
 
-set -xe
+set -x
 
 chmod -R u+w .
 
@@ -42,9 +42,16 @@ fi
             --with-zlib=${PREFIX} \
             --with-szlib=${PREFIX}
 
+config_result=$?
+
 echo "=====================config.log==================="
 cat config.log
 echo "=======================finish====================="
+
+if [ ${config_result} -ne 0 ]; then
+    echo "Bailing due to failed configure with ${config_result}"
+    exit ${config_result}
+fi
 
 make
 # skip "make check" because sample program he5_pt_readattrs is failing:
