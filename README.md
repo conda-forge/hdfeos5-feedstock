@@ -5,7 +5,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/hdfeos5-feedsto
 
 Home: http://hdfeos.org/index.php
 
-Package license: SAX-PD
+Package license: LicenseRef-HDFEOS5 AND LicenseRef-cfortran
 
 Summary: Earth Observing System HDF
 
