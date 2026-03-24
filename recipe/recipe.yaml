@@ -36,6 +36,7 @@ requirements:
     - libtool
     - make
     - patch
+    - pkg-config
   host:
     - hdf5
     - libaec
