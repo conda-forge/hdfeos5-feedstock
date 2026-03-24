@@ -20,7 +20,7 @@ source:
     file_name: HDF-EOS${{ version }}_TESTDRIVERS.tar.Z
 
 build:
-  number: 19
+  number: 20
   skip: win
 
 requirements:
@@ -54,7 +54,9 @@ tests:
 
 about:
   license: LicenseRef-HDFEOS5 AND LicenseRef-cfortran
-  license_file: doc/README
+  license_file:
+    - doc/README
+    - include/cfortHdf.h
   summary: Earth Observing System HDF
   homepage: http://hdfeos.org/index.php
 
