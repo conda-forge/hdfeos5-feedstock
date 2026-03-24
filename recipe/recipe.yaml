@@ -20,7 +20,7 @@ source:
     file_name: HDF-EOS${{ version }}_TESTDRIVERS.tar.Z
 
 build:
-  number: 20
+  number: 21
   skip: win
 
 requirements:
@@ -48,10 +48,9 @@ requirements:
 tests:
   - script:
       - if: not win
-        then: test -f ${PREFIX}/lib/libGctp.a
-      - if: not win
-        then: test -f ${PREFIX}/lib/libhe5_hdfeos.a
-
+        then:
+          - test -f ${PREFIX}/lib/libGctp.a
+          - test -f ${PREFIX}/lib/libhe5_hdfeos.a
 about:
   license: LicenseRef-HDFEOS5 AND LicenseRef-cfortran
   license_file:
