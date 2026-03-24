@@ -4,13 +4,32 @@ set -xe
 
 chmod -R u+w .
 
+code_archive="HDF-EOS${PKG_VERSION}.tar.Z"
+testdrivers_archive="HDF-EOS${PKG_VERSION}_TESTDRIVERS.tar.Z"
+
+# rattler-build 0.57.x does not yet extract legacy .tar.Z sources.
+# Download them as plain files in recipe.yaml and unpack them here instead.
+gzip -dc "${code_archive}" | tar -xf -
+mv hdfeos5/* .
+rmdir hdfeos5
+chmod -R u+w .
+
+patch -p1 < "${RECIPE_DIR}/patches/0001-remove-unnecessary-headers.patch"
+patch -p1 < "${RECIPE_DIR}/patches/0002-fix-automake-files-for-linux-compatibility.patch"
+patch -p1 < "${RECIPE_DIR}/patches/osx-cross-configure.patch"
+
+gzip -dc "${testdrivers_archive}" | tar -xf -
+mv hdfeos5/testdrivers ./testdrivers
+rmdir hdfeos5
+chmod -R u+w .
+
 # Get an updated config.sub and config.guess
 cp $BUILD_PREFIX/share/gnuconfig/config.* ./config
 
 export HDF5_USE_SHLIB=yes
 export CC=${PREFIX}/bin/h5cc
 export DYLD_FALLBACK_LIBRARY_PATH=${PREFIX}/lib
-export CFLAGS="-fPIC $CFLAGS"
+export CFLAGS="-std=gnu89 -fPIC $CFLAGS"
 
 export HDF5_LDFLAGS="-L ${PREFIX}/lib"
 
