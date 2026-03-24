@@ -16,6 +16,7 @@ chmod -R u+w .
 
 patch -p1 < "${RECIPE_DIR}/patches/0001-remove-unnecessary-headers.patch"
 patch -p1 < "${RECIPE_DIR}/patches/0002-fix-automake-files-for-linux-compatibility.patch"
+patch -p1 < "${RECIPE_DIR}/patches/0003-fix-szip-probe-with-modern-h5cc.patch"
 patch -p1 < "${RECIPE_DIR}/patches/osx-cross-configure.patch"
 
 gzip -dc "${testdrivers_archive}" | tar -xf -

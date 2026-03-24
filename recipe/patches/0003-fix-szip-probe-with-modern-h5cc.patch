@@ -1,0 +1,48 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Codex <codex@openai.com>
+Date: Tue, 24 Mar 2026 12:15:00 +0100
+Subject: [PATCH] fix szip probe with modern h5cc wrappers
+
+---
+ configure   | 7 ++++++-
+ configure.ac | 7 ++++++-
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/configure b/configure
+index a90e2a4..18e3e8f 100755
+--- a/configure
++++ b/configure
+@@ -22107,7 +22107,12 @@ echo "$as_me: error: CC is not h5cc" >&2;}
+     fi
+ 
+     SZIP_CC=szip_cc
+-    cat $PURE_CC | $AWK '{ if ( $0 ~ /^LDFLAGS=\"(.*)/ ) { print substr($0, 1, 9) " -L'$szlib_lib' " substr($0, 10) } else  { print } } ' > $SZIP_CC
++    cat > $SZIP_CC <<EOF
++#!/bin/sh
++# Preserve h5cc's own prefix discovery by delegating to the original wrapper
++# instead of copying it into the build directory.
++exec "$PURE_CC" -L"$szlib_lib" "\$@"
++EOF
+     chmod 755 $SZIP_CC
+     saved_CC="$CC"
+     CC=./$SZIP_CC
+diff --git a/configure.ac b/configure.ac
+index 0d7c5b5..6b8eff0 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -308,7 +308,12 @@ else
+     fi
+ 
+     SZIP_CC=szip_cc
+-    cat $PURE_CC | $AWK '{ if ( $0 ~ /^LDFLAGS=\"(.*)/ ) { print substr($0, 1, 9) " -L'$szlib_lib' " substr($0, 10) } else  { print } } ' > $SZIP_CC
++    cat > $SZIP_CC <<EOF
++#!/bin/sh
++# Preserve h5cc's own prefix discovery by delegating to the original wrapper
++# instead of copying it into the build directory.
++exec "$PURE_CC" -L"$szlib_lib" "\$@"
++EOF
+     chmod 755 $SZIP_CC
+     saved_CC="$CC"
+     CC=./$SZIP_CC
+-- 
+2.39.5
